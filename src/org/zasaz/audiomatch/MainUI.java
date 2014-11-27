@@ -19,6 +19,7 @@ public class MainUI extends JFrame {
     private JButton matchButton;
     private DefaultListModel listModel;
     private final JFileChooser fc = new JFileChooser();
+    public static String matched = "";
 
     public MainUI() {
         super();
@@ -42,12 +43,12 @@ public class MainUI extends JFrame {
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     File file = fc.getSelectedFile();
                     progressBar.setIndeterminate(true);
-                    SwingWorker worker = new SwingWorker<Integer,Void>() {
+                    SwingWorker worker = new SwingWorker<Integer, Void>() {
                         @Override
                         public Integer doInBackground() {
                             try {
                                 AudioLibrary.addToLibrary(file);
-                            }catch (Exception ee){
+                            } catch (Exception ee) {
 
                             }
                             return 0;
@@ -72,21 +73,23 @@ public class MainUI extends JFrame {
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     File file = fc.getSelectedFile();
                     progressBar.setIndeterminate(true);
-                    SwingWorker worker = new SwingWorker<Integer,Void>() {
+                    SwingWorker worker = new SwingWorker<String, Void>() {
                         @Override
-                        public Integer doInBackground() {
+                        public String doInBackground() {
+                            String name = "Error";
                             try {
-                                AudioLibrary.addToLibrary(file);
-                            }catch (Exception ee){
-
+                                name = AudioLibrary.tryToMatch(file);
+                            } catch (Exception ee) {
+                                ee.printStackTrace();
                             }
-                            return 0;
+                            MainUI.matched = name;
+                            return name;
                         }
 
                         @Override
                         public void done() {
-                            listModel.addElement(file.getName());
                             progressBar.setIndeterminate(false);
+                            JOptionPane.showMessageDialog(MainUI.this, MainUI.matched);
                         }
                     };
                     worker.execute();

@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AudioMFCCJ:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AudioMFCCJ_jar</output-path>
+    <root id="archive" name="AudioMFCCJ.jar">
+      <element id="module-output" name="AudioMFCCJ" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/commons-logging-api.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/cp.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/jama-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/jl1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/jogg-0.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/jorbis-0.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/mp3spi1.9.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/secondstring-20060615.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/stax-api-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/tritonus_remaining.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/tritonus_share.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/AI_Project/CoMIRVA/lib/wstx-lgpl-2.0.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
