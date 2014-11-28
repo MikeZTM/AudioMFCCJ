@@ -49,7 +49,7 @@ public class MainUI extends JFrame {
                             try {
                                 AudioLibrary.addToLibrary(file);
                             } catch (Exception ee) {
-
+                                ee.printStackTrace();
                             }
                             return 0;
                         }

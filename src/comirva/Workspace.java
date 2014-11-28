@@ -4,7 +4,6 @@
 package comirva;
 
 import comirva.data.DataMatrix;
-import comirva.ui.model.VisuListItem;
 
 import java.io.*;
 import java.util.Vector;
@@ -34,7 +33,7 @@ public class Workspace implements Serializable {
 	// ListModel for visualisation list - contains the visu names
 	protected DefaultListModel listVisu = new DefaultListModel();
 	// Vector for Visu-Instances
-	protected Vector<VisuListItem> visuList = new Vector<VisuListItem>();
+//	protected Vector<VisuListItem> visuList = new Vector<VisuListItem>();
 	
 	// ListModel for meta-data names list - contains names of meta-data instances
 	protected DefaultListModel listMetaData = new DefaultListModel();
@@ -75,19 +74,19 @@ public class Workspace implements Serializable {
 	 * @param visu	a Visualisation object representing the visualisation
 	 * @param name	a String containing a name for the Visualisation which is shown in CoMIRVA's UI
 	 */
-	public void addVisu(VisuListItem visu, String name) {
-		visuList.addElement(visu);
-		listVisu.addElement(name);
-	}
+//	public void addVisu(VisuListItem visu, String name) {
+//		visuList.addElement(visu);
+//		listVisu.addElement(name);
+//	}
 
 	/** print the stored visualisation types to standard system output */
-	public void printVisuTypes() {
-		for (int i=0; i<visuList.size(); i++) {
-			System.out.print(i + ": " + visuList.get(i).getClass().getName());
-			System.out.print(" (" + listVisu.get(i) + ") ");
-			System.out.println();
-		}
-	}
+//	public void printVisuTypes() {
+//		for (int i=0; i<visuList.size(); i++) {
+//			System.out.print(i + ": " + visuList.get(i).getClass().getName());
+//			System.out.print(" (" + listVisu.get(i) + ") ");
+//			System.out.println();
+//		}
+//	}
 	
 	/** 
 	 * counts the amount of visus of class given by its class name.
@@ -98,15 +97,15 @@ public class Workspace implements Serializable {
 	 * @param className The name of the class that should be counted
 	 * @return the amount of classes in the list
 	 */
-	public int countVisuTypes(String className) {
-		int count = 0;
-		for (int i=0; i<visuList.size(); i++) {
-			if (visuList.get(i).getClass().getName().equals(className)) {
-				count++;
-			}
-		}
-		return count;
-	}
+//	public int countVisuTypes(String className) {
+//		int count = 0;
+//		for (int i=0; i<visuList.size(); i++) {
+//			if (visuList.get(i).getClass().getName().equals(className)) {
+//				count++;
+//			}
+//		}
+//		return count;
+//	}
 	
 	/**
 	 * creates a vector containing only the visualizations of the type
@@ -117,31 +116,31 @@ public class Workspace implements Serializable {
 	 * @param className The name of the class  
 	 * @return a list (vector) containing the elements of the given class
 	 */
-	public Vector<VisuListItem> getVisuListItems(String className) {
-		Vector<VisuListItem> itemList = new Vector<VisuListItem>();
-		for (int i=0; i<visuList.size(); i++) {
-			VisuListItem item = visuList.get(i);
-			if (item.getClass().getName().equals(className)) {
-				itemList.add(item);
-			}
-		}
-		return itemList;
-	}
+//	public Vector<VisuListItem> getVisuListItems(String className) {
+//		Vector<VisuListItem> itemList = new Vector<VisuListItem>();
+//		for (int i=0; i<visuList.size(); i++) {
+//			VisuListItem item = visuList.get(i);
+//			if (item.getClass().getName().equals(className)) {
+//				itemList.add(item);
+//			}
+//		}
+//		return itemList;
+//	}
 	
 	/**
 	 * creates a vector containing the names 
 	 * @param className
 	 * @return a vector containing the names of the visualizations of the desired type
 	 */
-	public Vector<String> getVisuListNames(String className) {
-		Vector<String> nameList = new Vector<String>();
-		for (int i=0; i<visuList.size(); i++) {
-			if (visuList.get(i).getClass().getName().equals(className)) {
-				nameList.add(listVisu.get(i).toString());
-			}
-		}
-		return nameList;
-	}
+//	public Vector<String> getVisuListNames(String className) {
+//		Vector<String> nameList = new Vector<String>();
+//		for (int i=0; i<visuList.size(); i++) {
+//			if (visuList.get(i).getClass().getName().equals(className)) {
+//				nameList.add(listVisu.get(i).toString());
+//			}
+//		}
+//		return nameList;
+//	}
 	
 	/**
 	 * This method returns a string array containing the names of visualisation
@@ -158,9 +157,9 @@ public class Workspace implements Serializable {
 	 * @param className The name of the class
 	 * @return an array containing the names of the given type
 	 */
-	public String[] getVisuListNamesArray(String className) {
-		return getVisuListNamesArray(className, countVisuTypes(className));	
-	}
+//	public String[] getVisuListNamesArray(String className) {
+//		return getVisuListNamesArray(className, countVisuTypes(className));
+//	}
 	
 	/**
 	 * This method returns a string array containing the names of visualisation
@@ -182,13 +181,13 @@ public class Workspace implements Serializable {
 	 * @param count The amount of visualisations of that type in the list
 	 * @return an array containing the names of the given type
 	 */
-	public String[] getVisuListNamesArray(String className, int count) {
-		String[] nameList = new String[count];
-		for (int i=0; i<visuList.size() && i<count; i++) {
-			if (visuList.get(i).getClass().getName().equals(className)) {
-				nameList[i] = listVisu.get(i).toString();
-			}
-		}
-		return nameList;
-	}
+//	public String[] getVisuListNamesArray(String className, int count) {
+//		String[] nameList = new String[count];
+//		for (int i=0; i<visuList.size() && i<count; i++) {
+//			if (visuList.get(i).getClass().getName().equals(className)) {
+//				nameList[i] = listVisu.get(i).toString();
+//			}
+//		}
+//		return nameList;
+//	}
 }
