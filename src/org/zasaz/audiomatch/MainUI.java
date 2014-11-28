@@ -17,6 +17,7 @@ public class MainUI extends JFrame {
     private JPanel rootPanel;
     private JProgressBar progressBar;
     private JButton matchButton;
+    private JScrollPane scroll;
     private DefaultListModel listModel;
     private final JFileChooser fc = new JFileChooser();
     public static String matched = "";
@@ -49,20 +50,22 @@ public class MainUI extends JFrame {
                     SwingWorker worker = new SwingWorker<Integer, Void>() {
                         @Override
                         public Integer doInBackground() {
-                            try {
-                                if (files.length > 1) {
-                                    progressBar.setIndeterminate(false);
-                                    progressBar.setStringPainted(true);
-                                }
-                                for (int i = 0; i < files.length; i++) {
-                                    AudioLibrary.addToLibrary(files[i]);
-                                    if (files.length > 1) {
-                                        progressBar.setValue((int)((i + 1.0) / files.length * 100));
-                                    }
-                                }
-                            } catch (Exception ee) {
-                                ee.printStackTrace();
+                            if (files.length > 1) {
+                                progressBar.setIndeterminate(false);
+                                progressBar.setStringPainted(true);
                             }
+                            for (int i = 0; i < files.length; i++) {
+                                try {
+                                    AudioLibrary.addToLibrary(files[i]);
+                                } catch (Exception ee) {
+                                    ee.printStackTrace();
+                                    files[i] = null;
+                                }
+                                if (files.length > 1) {
+                                    progressBar.setValue((int) ((i + 1.0) / files.length * 100));
+                                }
+                            }
+
                             return 0;
                         }
 
@@ -70,7 +73,9 @@ public class MainUI extends JFrame {
                         public void done() {
                             progressBar.setIndeterminate(true);
                             for (int i = 0; i < files.length; i++) {
-                                listModel.addElement(files[i].getName());
+                                if(files[i]!=null) {
+                                    listModel.addElement(files[i].getName());
+                                }
                             }
                             progressBar.setIndeterminate(false);
                         }
@@ -88,6 +93,7 @@ public class MainUI extends JFrame {
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     File file = fc.getSelectedFile();
+                    progressBar.setStringPainted(false);
                     progressBar.setIndeterminate(true);
                     SwingWorker worker = new SwingWorker<String, Void>() {
                         @Override
