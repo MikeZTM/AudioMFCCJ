@@ -83,6 +83,7 @@ public class MainUI extends JFrame {
         matchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                fc.setMultiSelectionEnabled(false);
                 int returnVal = fc.showDialog(MainUI.this, "Match");
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
