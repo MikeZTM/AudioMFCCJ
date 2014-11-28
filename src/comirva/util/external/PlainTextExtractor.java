@@ -15,7 +15,7 @@ import java.util.Enumeration;
 
 public class PlainTextExtractor {
 
-	public static String delimiterstring = " -\t\r\n\"|/,;.:?!~#%$§=_+*()[]{}&";
+	public static String delimiterstring = " -\t\r\n\"|/,;.:?!~#%$ï¿½=_+*()[]{}&";
 
 	public static String extractPlainText(String content) {
 		String plaintext = "";
@@ -85,7 +85,7 @@ public class PlainTextExtractor {
 //		}
 		
 		// remove single-quotes
-		plaintext = plaintext.replace("´", " ");
+		plaintext = plaintext.replace("ï¿½", " ");
 		plaintext = plaintext.replace("`", " ");
 		plaintext = plaintext.replace("'", " ");
 		

@@ -7,7 +7,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * <p>Überschrift: </p>
+ * <p>ï¿½berschrift: </p>
  *
  * <p>Beschreibung: </p>
  * This class provides a way to split metadata from audiostream, which support
@@ -26,7 +26,7 @@ import java.net.URLConnection;
  * if you want to analyse this stream using the <code>comirva.audio</code>
  * package.
  *
- * @author Klaus Seyerlehner, Florian Jäger
+ * @author Klaus Seyerlehner, Florian Jï¿½ger
  * @version 1.0
  */
 public class MetaDataInputStream extends FilterInputStream

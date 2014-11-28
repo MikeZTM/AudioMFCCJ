@@ -28,6 +28,8 @@ public class MainUI extends JFrame {
         } catch (Exception e) {
         }
         setContentPane(rootPanel);
+        progressBar.setMaximum(100);
+        progressBar.setMinimum(0);
         listModel = new DefaultListModel();
         audioList.setModel(listModel);
         fc.addChoosableFileFilter(new MP3Filter());
@@ -38,16 +40,26 @@ public class MainUI extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                fc.setMultiSelectionEnabled(true);
                 int returnVal = fc.showDialog(MainUI.this, "Add");
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
+                    File[] files = fc.getSelectedFiles();
                     progressBar.setIndeterminate(true);
                     SwingWorker worker = new SwingWorker<Integer, Void>() {
                         @Override
                         public Integer doInBackground() {
                             try {
-                                AudioLibrary.addToLibrary(file);
+                                if (files.length > 1) {
+                                    progressBar.setIndeterminate(false);
+                                    progressBar.setStringPainted(true);
+                                }
+                                for (int i = 0; i < files.length; i++) {
+                                    AudioLibrary.addToLibrary(files[i]);
+                                    if (files.length > 1) {
+                                        progressBar.setValue((int)((i + 1.0) / files.length * 100));
+                                    }
+                                }
                             } catch (Exception ee) {
                                 ee.printStackTrace();
                             }
@@ -56,7 +68,10 @@ public class MainUI extends JFrame {
 
                         @Override
                         public void done() {
-                            listModel.addElement(file.getName());
+                            progressBar.setIndeterminate(true);
+                            for (int i = 0; i < files.length; i++) {
+                                listModel.addElement(files[i].getName());
+                            }
                             progressBar.setIndeterminate(false);
                         }
                     };
