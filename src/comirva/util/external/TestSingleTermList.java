@@ -50,7 +50,7 @@ public class TestSingleTermList {
 			try {
 				Webpage wp = new Webpage(files[i]);
 				String content = wp.getPlainText();
-				HashtableTool.updateWordsOccurrences(content, tf, null, wp.delimiterstring);
+				HashtableTool.updateWordsOccurrences(content, tf, null, Webpage.delimiterstring);
 				System.out.println("processing "+ files[i].toString());
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -64,7 +64,7 @@ public class TestSingleTermList {
 			BufferedWriter bw = new BufferedWriter(fw);
 			Enumeration e = tf.keys();
 			while (e.hasMoreElements()) {
-				bw.write((String)e.nextElement()+"\n");
+				bw.write(e.nextElement() +"\n");
 				bw.flush();
 				fw.flush();
 			}
@@ -140,7 +140,7 @@ if (false) {
 		// every artist
 		for (int i=0; i<artists.size(); i++) {
 			time = System.currentTimeMillis();
-			String artist = (String)artists.elementAt(i);
+			String artist = artists.elementAt(i);
 			File dirArtist = new File(baseDir+TextFormatTool.removeUnwantedChars(artist));
 			// create entity term profile
 			EntityTermProfile etp = new EntityTermProfile(dirArtist);

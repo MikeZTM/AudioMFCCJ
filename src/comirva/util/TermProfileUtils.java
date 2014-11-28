@@ -136,7 +136,7 @@ public class TermProfileUtils {
 	 */
 	public static void generateEntityTermProfiles(File rootDir, Vector<String> terms, JLabel statusBar) {
 		if (rootDir.isDirectory()) {
-			long t = System.currentTimeMillis();;
+			long t = System.currentTimeMillis();
 			// every entity (directory)
 			File[] dirs = rootDir.listFiles();
 			for (int i=0; i<dirs.length; i++) {
@@ -225,7 +225,7 @@ public class TermProfileUtils {
 			for (int i=0; i<toMatrix.getNumberOfRows(); i++) {
 				if (docFreq[i] != 0) {		// only add df value if it is greater than 0
 					df.addElement(new Double(docFreq[i]));
-					t.addElement((String)terms.elementAt(i));
+					t.addElement(terms.elementAt(i));
 				}
 			}
 			// sort remaining terms wrt document frequency
@@ -262,7 +262,7 @@ public class TermProfileUtils {
 			for (int i=0; i<tfxidf.size(); i++) {
 				if (tfxidf.elementAt(i).doubleValue() != 0) {		// only add tfxidf value if it is greater than 0
 					tfidf.addElement(new Double(tfxidf.elementAt(i)));
-					t.addElement((String)terms.elementAt(i));
+					t.addElement(terms.elementAt(i));
 				}
 			}
 			// sort remaining terms wrt TFxIDF value
@@ -414,7 +414,7 @@ public class TermProfileUtils {
 				}
 				Webpage wp = new Webpage(files[i]);
 				String content = wp.getPlainText();
-				HashtableTool.updateWordsOccurrences(content, tf, null, wp.delimiterstring);
+				HashtableTool.updateWordsOccurrences(content, tf, null, Webpage.delimiterstring);
 //				System.out.println("processing "+ files[i].toString());
 			} catch (Exception e) {
 				e.printStackTrace();

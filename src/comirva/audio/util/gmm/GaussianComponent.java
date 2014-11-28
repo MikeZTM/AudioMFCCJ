@@ -151,7 +151,7 @@ public final class GaussianComponent implements XMLSerializable
   public double getWeightedSampleProbability(Matrix x)
   {
     Matrix diff, result;
-    double value = 0;;
+    double value = 0;
     double[] row;
 
     diff = x.minus(mean);
@@ -223,7 +223,7 @@ public final class GaussianComponent implements XMLSerializable
     Matrix mean = new Matrix(dimension, 1);
     for(int j = 0; j < samplePoints.size(); j++)
     {
-      Matrix x = (Matrix) samplePoints.get(j);
+      Matrix x = samplePoints.get(j);
       x = x.times(p_ij[j]);
       mean.plusEquals(x);
     }
@@ -233,7 +233,7 @@ public final class GaussianComponent implements XMLSerializable
     Matrix covariances = new Matrix(dimension, dimension);
     for(int j = 0; j < samplePoints.size(); j++)
     {
-      Matrix x = (Matrix) samplePoints.get(j);
+      Matrix x = samplePoints.get(j);
       Matrix diff = x.minus(mean);
       diff = diff.times(diff.transpose());
       diff.timesEquals(p_ij[j]);

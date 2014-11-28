@@ -99,9 +99,9 @@ public class PageCountsRetriever extends Thread {
 	    		if ((addKeywords != null) && (addKeywords != "") && (!addKeywordsAfterSearchString)) 
 	    			queryString = queryString + addKeywords + " ";
 	    		if (i!=j)	// if search terms differ, use both in query
-	    			queryString = queryString + "\""  + (String)searchWords.elementAt(i) + "\"+\"" + (String)searchWords.elementAt(j) + "\"";
+	    			queryString = queryString + "\""  + searchWords.elementAt(i) + "\"+\"" + searchWords.elementAt(j) + "\"";
 	    		else		// if search terms equal, use only the first one in query
-	    			queryString = queryString + "\""  + (String)searchWords.elementAt(i) + "\"";
+	    			queryString = queryString + "\""  + searchWords.elementAt(i) + "\"";
 	    		// if additional keywords were specified and should be addded after query, add them now
 	    		if ((addKeywords != null) && (addKeywords != "") && (addKeywordsAfterSearchString)) 
 	    			queryString = queryString + addKeywords;
@@ -146,7 +146,7 @@ public class PageCountsRetriever extends Thread {
 	    	if ((addKeywords != null) && (addKeywords != "") && (!addKeywordsAfterSearchString)) 
 	    		queryString = queryString + addKeywords + " ";
    			//queryString = queryString + "\""  + (String)searchWords.elementAt(i) + "\"";
-	    	queryString = queryString + (String)searchWords.elementAt(i);
+	    	queryString = queryString + searchWords.elementAt(i);
 	    	// if additional keywords were specified and should be addded after query, add them now
 	    	if ((addKeywords != null) && (addKeywords != "") && (addKeywordsAfterSearchString)) 
 	    		queryString = queryString + addKeywords;

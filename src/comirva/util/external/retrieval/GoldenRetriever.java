@@ -413,8 +413,8 @@ public class GoldenRetriever extends Thread {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for (int i=0; i<this.wgetProcesses.length; i++) {
-			Process p = this.wgetProcesses[i];
+		for (int i=0; i< wgetProcesses.length; i++) {
+			Process p = wgetProcesses[i];
 			if (p != null) {
 				GoldenRetriever.doWaitFor(p);
 				p.destroy();

@@ -48,7 +48,7 @@ public class ETPUserStudy {
 						Long df = new Long(DF.get(key).longValue());
 						Long newDF;
 						if (htDF.containsKey(key))
-							newDF = new Long(df.longValue()+((Long)htDF.get(key)).longValue());
+							newDF = new Long(df.longValue()+ htDF.get(key).longValue());
 						else
 							newDF = df;
 						htDF.put(key, newDF);
@@ -130,7 +130,7 @@ if (true) {
 //					}
 					bw.append("TFxIDF\t");
 					for (int u=0; u<twTFxIDF.getSize(); u++) {
-						bw.append((String)twTFxIDF.getTerms().get(u) + "\n");
+						bw.append(twTFxIDF.getTerms().get(u) + "\n");
 						if (u+1 < twTF.getSize()) bw.append("\t");
 					}
 					bw.newLine();

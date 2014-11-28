@@ -144,7 +144,7 @@ public class WebCrawling extends Thread {
 	    			query = addKeywords + " ";
 	    		// add actual query word
 //	    		query = query + "\"" + (String)searchWords.elementAt(i) + "\"";		// use exact (phrase) search
-	    		query = query + (String)searchWords.elementAt(i);					// use conjuctive search
+	    		query = query + searchWords.elementAt(i);					// use conjuctive search
 	    		// if additional keywords were specified and should be addded after query, add them now
 	    		if ((addKeywords != null) && (addKeywords != "") && (addKeywordsAfterSearchString)) 
 	    			query = query + addKeywords;

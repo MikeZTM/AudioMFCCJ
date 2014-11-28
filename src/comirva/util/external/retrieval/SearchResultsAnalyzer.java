@@ -160,7 +160,7 @@ public class SearchResultsAnalyzer {
 					System.out.println("Genre: " + genre);
 					if (SearchResultsAnalyzer.PERFORM_TOP_X_SELECTION) {
 						System.out.println("Top-ranked artists: ");
-						for (int l=0; l<artists_Genre.size()*((float)SearchResultsAnalyzer.SELECT_TOP_X_PERCENT_PER_GENRE/100.0f); l++) {
+						for (int l=0; l<artists_Genre.size()*(SearchResultsAnalyzer.SELECT_TOP_X_PERCENT_PER_GENRE /100.0f); l++) {
 							if (l<10)
 								System.out.println(artists_Genre.elementAt(l) + "\t" + Math.round(((Double)pcs_Genre.elementAt(l)).doubleValue()));
 							artist = (String)artists_Genre.elementAt(l);

@@ -108,7 +108,7 @@ public class BandMemberEvaluatorMN {
 				Vector<Instrument> instr = bm.elementAt(i).getInstruments();
 				Enumeration<Instrument> enumInstr = instr.elements();
 				while (enumInstr.hasMoreElements()) {
-					if ((double)enumInstr.nextElement().getFrequency()/(double)maxDF >= this.minimumDF && !newBM[0].contains(bm.elementAt(i)))
+					if ((double)enumInstr.nextElement().getFrequency()/(double)maxDF >= minimumDF && !newBM[0].contains(bm.elementAt(i)))
 						newBM[0].addElement(bm.elementAt(i));
 				}
 			}			

@@ -129,7 +129,7 @@ public class KMeansClustering
 
     //create the specified number of clusters
     for(int i = 0; i < numberClusters; i++)
-      clusters[i] = new Cluster((Matrix) this.data.get(startPoints[i]));
+      clusters[i] = new Cluster(this.data.get(startPoints[i]));
   }
 
 

@@ -166,7 +166,7 @@ public final class GaussianMixture implements XMLSerializable
   {
     double p = 0;
     for (int j = 0; j < points.size(); j++)
-      p += Math.log(getProbability((Matrix) points.get(j)));
+      p += Math.log(getProbability(points.get(j)));
     return p;
   }
 
@@ -327,7 +327,7 @@ public final class GaussianMixture implements XMLSerializable
   public void runEM(PointList samplePoints) throws CovarianceSingularityException
   {
     double p_old = - Double.MAX_VALUE;
-    double p =  - Double.MAX_VALUE;;
+    double p =  - Double.MAX_VALUE;
     int numberIterations = 0;
 
     synchronized(p_ij)
@@ -391,7 +391,7 @@ public final class GaussianMixture implements XMLSerializable
       //estimate the probability of sample j under the distribution of component i
       for(int i = 0; i < components.length; i++)
       {
-        Matrix x = (Matrix) samplePoints.get(j);
+        Matrix x = samplePoints.get(j);
         value = components[i].getWeightedSampleProbability(x);
         p_j += value;
         p_ij[i][j] = value;

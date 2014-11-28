@@ -139,7 +139,7 @@ public class MFCC
 
     //check minFreq/maxFreq
     if(minFreq <= 0 || minFreq > maxFreq || maxFreq > 88200.0f)
-      throw new IllegalArgumentException("the min. frequency must be greater 0 smaller than the max. frequency, which must be smaller than 88200.0");;
+      throw new IllegalArgumentException("the min. frequency must be greater 0 smaller than the max. frequency, which must be smaller than 88200.0");
 
     this.sampleRate = sampleRate;
     this.windowSize = windowSize;

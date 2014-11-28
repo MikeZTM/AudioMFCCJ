@@ -49,7 +49,7 @@ public class CoOcMatrix {
 				ObjectInputStream hashFile = new ObjectInputStream(new FileInputStream("C:/Research/Data/co-occurrences/C1816a/artist_cooc_hashes/" + TextFormatTool.removeUnwantedChars(artist) + "_cooc.hash"));
 				Hashtable ht = (Hashtable)hashFile.readObject();
 				for (int j=0; j<artists.size(); j++) {
-					cooc[i][j] = ((Integer)ht.get((String)artists.elementAt(j))).intValue();
+					cooc[i][j] = ((Integer)ht.get(artists.elementAt(j))).intValue();
 					dm.addValue(new Double(cooc[i][j]));
 //					if (cooc[i][j] != 0)
 //						System.out.println((String)artists.elementAt(j) + " on " + (String)artists.elementAt(i) + ": " + cooc[i][j]);
@@ -145,7 +145,7 @@ public class CoOcMatrix {
 					}
 				}
 				for (int j=0; j<artists.size(); j++) {
-					System.out.println((String)artists.elementAt(j) + "  " + cooc[i][j]); 
+					System.out.println(artists.elementAt(j) + "  " + cooc[i][j]);
 				}
 			}
 		} catch (IOException e) {

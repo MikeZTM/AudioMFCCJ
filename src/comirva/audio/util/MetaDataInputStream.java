@@ -170,8 +170,8 @@ public class MetaDataInputStream extends FilterInputStream
                 while (in.available() < 1)
                     Thread.currentThread().sleep(100);
             }
-            catch(InterruptedException e){};
-            int i = in.read();
+            catch(InterruptedException e){}
+        int i = in.read();
 
             i *= 16;
 
@@ -184,9 +184,9 @@ public class MetaDataInputStream extends FilterInputStream
                 while (in.available() < i)
                     Thread.currentThread().sleep(100);
             }
-            catch(InterruptedException e){};
+            catch(InterruptedException e){}
 
-            //read the thing...
+        //read the thing...
             in.read(b);
 
             return new String(b);
