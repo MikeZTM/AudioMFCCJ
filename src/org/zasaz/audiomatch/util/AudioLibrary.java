@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * Created by Mike on 11/27/2014.
  */
 public class AudioLibrary {
-    public static ArrayList<AudioItem> items=new ArrayList<>();
+    public static ArrayList<AudioItem> items=new ArrayList<AudioItem>();
 
     public static void addToLibrary(File file) throws IOException, UnsupportedAudioFileException {
         AudioFeature audioFeature = null;

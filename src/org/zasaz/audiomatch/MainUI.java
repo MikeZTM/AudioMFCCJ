@@ -60,7 +60,7 @@ public class MainUI extends JFrame {
                 int returnVal = fc.showDialog(MainUI.this, "Add");
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File[] files = fc.getSelectedFiles();
+                    final File[] files = fc.getSelectedFiles();
                     progressBar.setIndeterminate(true);
                     SwingWorker worker = new SwingWorker<Integer, Void>() {
                         @Override
@@ -107,7 +107,7 @@ public class MainUI extends JFrame {
                 int returnVal = fc.showDialog(MainUI.this, "Match");
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
+                    final File file = fc.getSelectedFile();
                     progressBar.setStringPainted(false);
                     progressBar.setIndeterminate(true);
                     SwingWorker worker = new SwingWorker<String, Void>() {
